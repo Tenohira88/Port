@@ -1,0 +1,75 @@
+#Chatbot for ordering pizza
+def order_pizza():
+  orders = []
+  while True:
+    order = input("Please enter your order: ")
+    if order == "done":
+      print("These are your orders")
+      print(orders)
+      break
+    orders.append(order)
+
+  payment = input("Please select your payment method(Cash, Visa, QR): ")
+  if payment == "Cash" or payment == "Visa" or payment == "QR":
+    print("Thank you for order with us")
+  else:
+    print("Please reorder")
+
+order_pizza()
+
+#---------------------------------------------------------------------------------------------------------
+#Pao Ying Chub
+import random
+
+def pao_ying_chub():
+    bots = ["Rock", "Paper", "Scissors"]
+    scores = [0]
+
+    while True:
+        bot = random.sample(bots, 1)[0]
+        print("Welcome to Pao Ying Chub")
+        user = input("Rock, Paper, Scissors?(Type Exit to leave) ")
+
+        if bot == "Rock" and user == "Scissors":
+            print("You lose")
+            scores[0] -= 1
+        elif bot == "Paper" and user == "Rock":
+            print("You lose")
+            scores[0] -= 1
+        elif bot == "Scissors" and user == "Paper":
+            print("You lose")
+            scores[0] -= 1
+        elif bot == user:
+            print("Draw")
+        elif user == "Exit":
+            print("Thank you for playing")
+            print("Total Score")
+            return scores
+        else:
+            print("You win")
+            scores[0] += 1
+        print("Score:", scores[0])
+
+pao_ying_chub()
+
+#---------------------------------------------------------------------------------------------------------
+#ATM balance
+class ATM:
+  def __init__(self, name, bank, balance):
+    self.name = name
+    self.bank = bank
+    self.balance = balance
+  def deposit(self, amount):
+    self.balance += amount
+    print("Your current balance:")
+    return self.balance
+
+  def withdraw(self, amount):
+    if self.balance < amount:
+      print("You don't have enough balance.")
+      print(f"Your current balance is {self.balance}.")
+      print("Please redo the transaction.")
+    else:
+      self.balance -= amount
+      print("Your current balance:")
+      return self.balance
